@@ -1,0 +1,32 @@
+{
+  "name": "fire-demo",
+  "description": "Trying firestore",
+  "version": "0.0.0",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "ecstatic": "^4.1.4",
+    "envify": "^4.1.0",
+    "esmify": "^2.1.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "firebase": "^9.6.7"
+  },
+  "scripts": {
+    "start": "npm run build && ecstatic public",
+    "build": "env $(cat .env | grep -v \"#\" | xargs) browserify index.js -t envify -p esmify > public/bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nichoth/fire-demo.git"
+  },
+  "author": "nichoth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nichoth/fire-demo/issues"
+  },
+  "homepage": "https://github.com/nichoth/fire-demo#readme"
+}
