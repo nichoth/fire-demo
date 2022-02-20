@@ -3,7 +3,6 @@
   "description": "Trying firestore",
   "version": "0.0.0",
   "main": "index.js",
-  "type": "module",
   "devDependencies": {
     "browserify": "^17.0.0",
     "ecstatic": "^4.1.4",
@@ -11,6 +10,7 @@
     "esmify": "^2.1.1"
   },
   "dependencies": {
+    "@google-cloud/firestore": "^5.0.2",
     "dotenv": "^16.0.0",
     "firebase": "^9.6.7",
     "firebase-admin": "^10.0.2"
