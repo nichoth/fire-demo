@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "npm run build && ecstatic public",
-    "build": "env $(cat .env | grep -v \"#\" | xargs) browserify index.js -t envify -p esmify > public/bundle.js",
+    "build": "env $(cat .env | grep -v \"#\" | xargs) browserify src/index.js -t envify -p esmify > public/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
