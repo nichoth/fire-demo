@@ -20,3 +20,14 @@ docRef.set({
 .catch(err => {
     console.log('errrrrr', err)
 })
+
+db.collection('users')
+    .get()
+    .then(snapshot => {
+        // console.log('users collection', snapshot)
+
+        console.log('__users__')
+        snapshot.forEach((doc) => {
+            console.log(doc.id, '=>', doc.data())
+        })
+    })
