@@ -55,3 +55,14 @@ docRef.set({
     console.log('errrrrr', err)
 })
 ```
+
+--------------------------------------
+
+> You can also use the get method to retrieve the entire collection.
+
+```js
+const snapshot = await db.collection('users').get();
+snapshot.forEach((doc) => {
+  console.log(doc.id, '=>', doc.data());
+});
+```

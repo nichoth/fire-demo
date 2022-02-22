@@ -7,27 +7,37 @@ const db = new Firestore({
     keyFilename: __dirname + '/test-nov-10-firebase-adminsdk-1cmdm-5ec062ea7c.json'
 })
 
-const docRef = db.collection('users').doc('alovelace')
+// 'alovelace' is the id for the doc
+const lovelaceRef = db.collection('users').doc('alovelace')
 
-docRef.set({
-    first: 'Ada',
-    last: 'Lovelace',
-    born: 1815
-})
-.then(res => {
-    console.log('res', res)
-})
-.catch(err => {
-    console.log('errrrrr', err)
-})
 
-db.collection('users')
-    .get()
-    .then(snapshot => {
-        // console.log('users collection', snapshot)
+const aTuringRef = db.collection('users').doc('aturing');
 
-        console.log('__users__')
-        snapshot.forEach((doc) => {
-            console.log(doc.id, '=>', doc.data())
-        })
+
+Promise.all([
+    lovelaceRef.set({
+        first: 'Ada',
+        last: 'Lovelace',
+        born: 1815
+    }),
+
+    aTuringRef.set({
+        'first': 'Alan',
+        'middle': 'Mathison',
+        'last': 'Turing',
+        'born': 1912
     })
+])
+    .then(() => {
+        db.collection('users')
+            .get()
+            .then(snapshot => {
+                // console.log('users collection', snapshot)
+
+                console.log('__users__')
+                snapshot.forEach((doc) => {
+                    console.log(doc.id, '=>', doc.data())
+                })
+            })
+    })
+
