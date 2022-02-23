@@ -66,3 +66,9 @@ snapshot.forEach((doc) => {
   console.log(doc.id, '=>', doc.data());
 });
 ```
+
+------------------------------------------
+
+[Paginating data with query cursors](https://cloud.google.com/firestore/docs/query-data/query-cursors)
+
+
