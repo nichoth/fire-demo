@@ -13,7 +13,8 @@
     "@google-cloud/firestore": "^5.0.2",
     "dotenv": "^16.0.0",
     "firebase": "^9.6.7",
-    "firebase-admin": "^10.0.2"
+    "firebase-admin": "^10.0.2",
+    "tape": "^5.5.2"
   },
   "scripts": {
     "start": "npm run build && ecstatic public",

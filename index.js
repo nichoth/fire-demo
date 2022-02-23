@@ -1,5 +1,6 @@
 // this is a server side file
 
+const test = require('tape')
 const Firestore = require('@google-cloud/firestore')
 
 const db = new Firestore({
@@ -9,7 +10,7 @@ const db = new Firestore({
 
 // 'alovelace' is the id for the doc
 const lovelaceRef = db.collection('users').doc('alovelace')
-const aTuringRef = db.collection('users').doc('aturing');
+const aTuringRef = db.collection('users').doc('aturing')
 
 Promise.all([
     lovelaceRef.set({
@@ -27,15 +28,16 @@ Promise.all([
 
     db.collection('users').doc('foo').set({
         first: 'foo',
-        'last': 'bar',
-        'born': 8888
+        last: 'Bar',
+        born: 8888
     })
 ])
     .then(() => {
-        db.collection('users').orderBy('last', 'desc').limit(2)
+        // db.collection('users').orderBy('last').limit(2)
+        db.collection('users').orderBy('last', 'desc')
             .get()
             .then(snapshot => {
-                console.log('__ordered and limited__')
+                console.log('__ordered__')
                 snapshot.forEach((doc) => {
                     console.log(doc.id, '=>', doc.data())
                 })
@@ -51,4 +53,3 @@ Promise.all([
                 })
             })
     })
-
