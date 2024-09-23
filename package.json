@@ -10,10 +10,10 @@
     "esmify": "^2.1.1"
   },
   "dependencies": {
-    "@google-cloud/firestore": "^5.0.2",
+    "@google-cloud/firestore": "^7.10.0",
     "dotenv": "^16.0.0",
     "firebase": "^9.6.7",
-    "firebase-admin": "^10.0.2",
+    "firebase-admin": "^12.5.0",
     "tape": "^5.5.2"
   },
   "scripts": {
